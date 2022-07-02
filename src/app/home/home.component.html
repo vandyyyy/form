@@ -1,0 +1,69 @@
+
+<body>
+<div class="container">
+    <div class="register">
+        
+    <h1>USER REGISTRATION</h1>
+    <form form #login="ngForm" (ngSubmit)="completeLogin(login)" >
+        <div class = "form-group">
+            <label for="firstname">First Name     </label>
+            <input #name="ngModel" required minlength="2" maxlength="7" type="text" name="firstname" class="form-control" ngModel>
+            <div *ngIf = "name.touched && name.invalid" class="alert alert-danger">Invalid!!!</div>
+        </div>
+        <pre></pre>
+        <div class = "form-group">
+            <label for="lastname">Last Name      </label>
+            <input type="text" name="lastname" id="name" class="form-control" ngModel>
+        </div>
+        <pre></pre>
+        
+            <div class="dropdown">
+                <button class="dropbtn">state
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+        </div>
+        <div>
+            <label for="gender">Gender   </label>
+           
+             <input type="radio" name="Gender"> Male
+             <input type="radio" name="Gender"> Female
+           
+        </div>
+        <div class = "form-group">
+            <label for="age">Age        </label>
+            <input type="number" name="age" id="name" class="form-control" ngModel>
+        </div>
+        <div>
+            Are you eligible?: <input type="checkbox" name="myEligibility" id="name" checked>
+        </div>
+        <div class = "form-group">
+            <label for="email">Email        </label>
+            <input type="text" name="email" class="form-control" ngModel>
+        </div>
+        <h4>select State</h4>
+<select [(ngModel)]="selectedLevel" (change)="selected()">
+    <option *ngFor="let item of data" [ngValue]="item">{{item}}</option>
+</select>
+{{selectedLevel | json}}
+        <pre></pre>
+        <div>
+            <label>Enter Password</label>
+            <input type="password" appPassword>
+          </div>
+        <pre></pre>
+        
+        <h4>Any Questions</h4>
+        <div>
+            <textarea name="comment" form="usrform">Enter text here...</textarea>
+
+        </div>
+        <button class="btn btn-primary" type="submit">SUBMIT</button>
+    </form>
+</div>
+</div>
+</body>
